@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void showoptions()
+void showOptions()
 {
     string locations[] = {
         "Hostel 13", "Dispensary", "H13/H11 alley", "NMC Junction",
@@ -37,7 +37,7 @@ void pathprinting(int currnode, vector<int> prevnode)
     cout << currnode + 1 << " -> " ;
 }
 
-void shortestpathfinder(vector<pair<int, int> > adj[], int n, int source, int destination)
+void shortestPathFinder(vector<pair<int, int> > adj[], int n, int source, int destination)
 {
     vector<int> minDist(n , INT_MAX);
     minDist[source] = 0;
@@ -100,7 +100,7 @@ int main()
         insertEdge(adj, edges[i][0], edges[i][1], edges[i][2]);
     }
 
-    showoptions();
+    showOptions();
     
     cout << "Select Source : " << "\n";
     cin >> source;
@@ -108,7 +108,7 @@ int main()
     cin >> destination;
     cout << "\n";
 
-    shortestpathfinder(adj, n, source - 1, destination - 1);
+    shortestPathFinder(adj, n, source - 1, destination - 1);
 
     cout << "\n\n";
     return 0;
