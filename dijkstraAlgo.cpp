@@ -3,31 +3,22 @@ using namespace std;
 
 void showoptions()
 {
-    cout << "1. Hostel 13" << "\n";
-    cout << "2. Dispensary" << "\n";
-    cout << "3. H13/H11 alley" << "\n";
-    cout << "4. NMC Junction" << "\n";
-    cout << "5. Food Truck" << "\n";
-    cout << "6. Hostel 4" << "\n";
-    cout << "7. H2/H4 alley" << "\n";
-    cout << "8. Parking Junction" << "\n";
-    cout << "9. Hostel 2" << "\n";
-    cout << "10. Lawn Circle Junction" << "\n";
-    cout << "11. PMC Lawn Junction" << "\n";
-    cout << "12. Lower Lawn Junction" << "\n";
-    cout << "13. Hostel 3" << "\n";
-    cout << "14. Hostel 1" << "\n";
-    cout << "15. Main Building" << "\n";
-    cout << "16. Main Building FR" << "\n";
-    cout << "17. Main Building FL" << "\n";
-    cout << "18. Main Building R" << "\n";
-    cout << "19. Main Building L" << "\n";
-    cout << "20. Main Building BR" << "\n";
-    cout << "21. Main Building BL" << "\n";
-    cout << "22. R&D" << "\n";
-    cout << "23. Canteen (Apni Rasoi)" << "\n";
-    cout << "24. IC Inner Canteen" << "\n";
-    cout << "25. Production Dept." << "\n\n";
+    string locations[] = {
+        "Hostel 13", "Dispensary", "H13/H11 alley", "NMC Junction",
+        "Food Truck", "Hostel 4", "H2/H4 alley", "Parking Junction",
+        "Hostel 2", "Lawn Circle Junction", "PMC Lawn Junction",
+        "Lower Lawn Junction", "Hostel 3", "Hostel 1", "Main Building",
+        "Main Building FR", "Main Building FL", "Main Building R",
+        "Main Building L", "Main Building BR", "Main Building BL",
+        "R&D", "Canteen (Apni Rasoi)", "IC Inner Canteen", "Production Dept."
+    };
+
+    int numLocations = sizeof(locations) / sizeof(locations[0]);
+
+    // Print the locations
+    for (int i = 0; i < numLocations; i++) {
+        cout << i + 1 << ". " << locations[i] << "\n";
+    }
     
 }
 
@@ -92,39 +83,22 @@ int main()
     vector<pair<int , int>> adj[n];
     int source, destination;
 
-    insertEdge(adj, 0, 1, 237);
-    insertEdge(adj, 0, 2, 273);
-    insertEdge(adj, 1, 3, 188);
-    insertEdge(adj, 2, 3, 115);
-    insertEdge(adj, 2, 4, 160);
-    insertEdge(adj, 3, 4, 100);
-    insertEdge(adj, 3, 6, 216);
-    insertEdge(adj, 4, 5, 122);
-    insertEdge(adj, 4, 11, 114);
-    insertEdge(adj, 5, 9, 99);
-    insertEdge(adj, 6, 9, 106);
-    insertEdge(adj, 6, 7, 221);
-    insertEdge(adj, 9, 8, 128);
-    insertEdge(adj, 9, 10, 131);
-    insertEdge(adj, 8, 15, 101);
-    insertEdge(adj, 11, 12, 116);
-    insertEdge(adj, 10, 13, 128);
-    insertEdge(adj, 12, 10, 105);
-    insertEdge(adj, 13, 16, 105);
-    insertEdge(adj, 15, 14, 59);
-    insertEdge(adj, 14, 16, 52);
-    insertEdge(adj, 7, 17, 57);
-    insertEdge(adj, 17, 19, 178);
-    insertEdge(adj, 19, 24, 51);
-    insertEdge(adj, 24, 20, 60);
-    insertEdge(adj, 20, 23, 83);
-    insertEdge(adj, 13, 21, 217);
-    insertEdge(adj, 13, 18, 240);
-    insertEdge(adj, 16, 21, 135);
-    insertEdge(adj, 16, 18, 161);
-    insertEdge(adj, 18, 22, 81);
-    insertEdge(adj, 23, 22, 35);
-    insertEdge(adj, 7, 15, 112);
+    int edges[][3] = {
+        {0, 1, 237}, {0, 2, 273}, {1, 3, 188}, {2, 3, 115}, {2, 4, 160},
+        {3, 4, 100}, {3, 6, 216}, {4, 5, 122}, {4, 11, 114}, {5, 9, 99},
+        {6, 9, 106}, {6, 7, 221}, {9, 8, 128}, {9, 10, 131}, {8, 15, 101},
+        {11, 12, 116}, {10, 13, 128}, {12, 10, 105}, {13, 16, 105}, {15, 14, 59},
+        {14, 16, 52}, {7, 17, 57}, {17, 19, 178}, {19, 24, 51}, {24, 20, 60},
+        {20, 23, 83}, {13, 21, 217}, {13, 18, 240}, {16, 21, 135}, {16, 18, 161},
+        {18, 22, 81}, {23, 22, 35}, {7, 15, 112}
+    };
+
+    int numEdges = sizeof(edges) / sizeof(edges[0]);
+
+    // Insert edges into the adjacency list
+    for (int i = 0; i < numEdges; i++) {
+        insertEdge(adj, edges[i][0], edges[i][1], edges[i][2]);
+    }
 
     showoptions();
     
